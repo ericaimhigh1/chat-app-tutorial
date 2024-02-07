@@ -1,0 +1,265 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css");
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --clr-main: #2f0b92;
+  --clr-light: #f0eaff;
+  --clr-black: #333;
+  --clr-white: #fff;
+  --clr-gray: #f8f8f8;
+}
+
+body,
+input,
+button {
+  font-size: 1rem;
+  font-family: "Outfit", sans-serif;
+}
+
+button {
+  cursor: pointer;
+  width: 100%;
+}
+
+body {
+  color: var(--clr-black);
+  display: grid;
+  place-content: center;
+  height: 100vh;
+}
+
+.wrapper {
+  width: 400px;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 5px 5px #e9e9e9;
+}
+
+.title {
+  margin-bottom: 30px;
+  padding: 0 5px;
+  border-left: 5px solid var(--clr-main);
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #333;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+input:focus {
+  border: 1px solid var(--clr-main);
+}
+
+.btn {
+  text-decoration: none;
+  display: inline-block;
+  border: none;
+  padding: 15px;
+  background-color: var(--clr-main);
+  border-radius: 15px;
+  color: #fff;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.btn i {
+  margin-left: 10px;
+}
+
+.users-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--clr-black);
+  padding-bottom: 10px;
+}
+
+.users-header .ownname {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.users-list {
+  margin-top: 20px;
+  max-height: 350px;
+  overflow: auto;
+}
+
+.users-list::-webkit-scrollbar {
+  display: none;
+}
+
+.users-list a {
+  color: var(--clr-black);
+}
+
+a {
+  text-decoration: none;
+}
+
+.link {
+  color: var(--clr-main);
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 10px;
+  margin-top: 10px;
+  border-bottom: 1px solid rgb(230, 230, 230);
+  /* justify-content: space-between; */
+}
+
+.user:last-child {
+  border: none;
+}
+
+.user-photo {
+  width: 50px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+.user-detail {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.user-detail .user-name {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.user-detail .last-chat {
+  font-style: italic;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 10ch;
+}
+
+.status.online {
+  color: var(--clr-main);
+}
+
+.status.offline {
+  color: rgb(155, 155, 155);
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--clr-black);
+}
+
+.chat-header .user-name {
+  font-size: 1.85rem;
+}
+
+.back-btn {
+  cursor: pointer;
+  padding: 5px;
+}
+
+.chat-area {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.chats {
+  height: 400px;
+  overflow: auto;
+}
+
+.chats::-webkit-scrollbar {
+  display: none;
+}
+
+.single-chat {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.chat-bubble.outgoing {
+  position: relative;
+  max-width: 60%;
+  margin-left: auto;
+  margin-right: 10px;
+  padding: 10px;
+  background-color: var(--clr-main);
+  color: #fff;
+  border-radius: 13px;
+  word-wrap: break-word;
+}
+
+.chat-bubble.outgoing::after {
+  position: absolute;
+  top: 0;
+  right: -8px;
+  content: "";
+  width: 0;
+  aspect-ratio: 1;
+  border-top: 15px solid var(--clr-main);
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+}
+
+.chat-bubble.incoming {
+  position: relative;
+  max-width: 60%;
+  margin-right: auto;
+  margin-left: 10px;
+  padding: 10px;
+  background-color: var(--clr-light);
+  color: var(--clr-main);
+  border-radius: 13px;
+  word-wrap: break-word;
+}
+
+.chat-bubble.incoming::after {
+  position: absolute;
+  top: 0;
+  left: -8px;
+  content: "";
+  width: 0;
+  aspect-ratio: 1;
+  border-top: 15px solid var(--clr-light);
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+}
+
+.typing-area {
+  padding: 10px;
+}
+
+.typing-area form {
+  display: flex;
+}
+
+.typing-area input {
+  border-radius: 10px 0 0 10px;
+  height: 40px;
+}
+
+.typing-area button {
+  border-radius: 0 10px 10px 0;
+  border: none;
+  width: 50px;
+  height: 40px;
+  background-color: var(--clr-main);
+  color: var(--clr-white);
+}
